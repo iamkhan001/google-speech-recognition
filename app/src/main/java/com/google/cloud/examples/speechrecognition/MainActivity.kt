@@ -52,6 +52,8 @@ class MainActivity : AppCompatActivity() {
     private var mAudioEmitter: AudioEmitter? = null
     private lateinit var mTextView: TextSwitcher
 
+    private val lang = "en-US"
+
     private val mSpeechClient by lazy {
         // NOTE: The line below uses an embedded credential (res/raw/sa.json).
         //       You should not package a credential with real application.
@@ -122,7 +124,7 @@ class MainActivity : AppCompatActivity() {
                 if (isFirstRequest.getAndSet(false)) {
                     builder.streamingConfig = StreamingRecognitionConfig.newBuilder()
                             .setConfig(RecognitionConfig.newBuilder()
-                                    .setLanguageCode("en-US")
+                                    .setLanguageCode(lang)
                                     .setEncoding(RecognitionConfig.AudioEncoding.LINEAR16)
                                     .setSampleRateHertz(16000)
                                     .build())
